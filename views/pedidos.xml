@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- pedidos tree view -->
+     <record id="pedidos_view_tree" model="ir.ui.view">
+        <field name="name">pedidos.view.tree</field>
+        <field name="model">pedidos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Folio" width="15%"/>
+                <field name="proveedor_id" string="Proveedor" width="25%"/>
+                <field name="monto_total" string="Monto Total a Pagar" width="20%"/>
+                <field name="estado_pago" string="Estado Pago" width="20%"/>
+                <field name="fecha_pedido" string="Fecha Pedido" width="20%"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pedidos form view -->
+    <record id="pedidos_view_form" model="ir.ui.view">
+        <field name="name">pedidos.view.form</field>
+        <field name="model">pedidos</field>
+        <field name="arch" type="xml">
+            <form string="DATOS DE PEDIDOS">
+                <header>
+                    <field name="estado_pago" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="proveedor_id"/>
+                        <field name="fecha_pedido"/>
+                    </group>
+                    <notebook>
+                        <page string="DETALLES DE LOS PEDIDOS">
+                            <field name="pedidos_detalles_ids">
+                                <tree editable="bottom">
+                                    <field name="material_id" width="40%"/>
+                                    <field name="cantidad" width="30%"/>
+                                    <field name="precio" width="30%"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group>
+                        <field name="monto_total" string="Monto Total a Pagar" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- pedidos search view -->
+    <record id="pedidos_view_search" model="ir.ui.view">
+        <field name="name">pedidos.view.search</field>
+        <field name="model">pedidos</field>
+        <field name="arch" type="xml">
+            <search string="Search Pedidos">
+                <field name="name"/>
+                <field name="estado_pago"/>
+                <field name="fecha_pedido"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="pedidos_action" model="ir.actions.act_window">
+        <field name="name">Pedidos Disponibles</field>
+        <field name="res_model">pedidos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

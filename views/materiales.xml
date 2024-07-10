@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- material tree view -->
+    <record id="material_view_tree" model="ir.ui.view">
+        <field name="name">material.view.tree</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="name"/>
+               <field name="precio"/>
+               <field name="divisa" invisible = "True"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- vista formulario -->
+    <record id="vista_materiales_form" model="ir.ui.view">
+        <field name="name">materiales.form</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="divisa" invisible="1"/>
+                        <field name="precio"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de búsqueda -->
+    <record model="ir.ui.view" id="materiales_search">
+        <field name="name">materiales.search</field>
+        <field name="model">material</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="precio"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="materiales_action" model="ir.actions.act_window">
+        <field name="name">Materiales Disponibles</field>
+        <field name="res_model">material</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

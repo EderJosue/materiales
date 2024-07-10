@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Menú principal -->
+        <menuitem id="menu_materiales" name="Materiales" sequence="20"/>
+
+            <!-- Submenú Configuración -->
+            <menuitem id="menu_materiales_configuracion" name="Configuración" parent="menu_materiales" sequence="10"/>
+
+                <!-- Submenús bajo Biblioteca -->
+                <menuitem id="submenu_materiales" name="Material" parent="menu_materiales_configuracion" action="materiales_action" sequence="20"/>
+                <!-- <menuitem id="submenu_autores" name="Autores" parent="menu_biblioteca" action="biblioteca_autores_action" sequence="30"/>
+                <menuitem id="submenu_alumnos" name="Alumnos" parent="menu_biblioteca" action="biblioteca_alumnos_action" sequence="40"/>
+                <menuitem id="submenu_empleados" name="Empleados" parent="menu_biblioteca" action="biblioteca_empleados_action" sequence="50"/> -->
+            <menuitem id="menu_materiales_co" name="Config" parent="menu_materiales" sequence="20"/>
+                <menuitem id="submenu_pedidos" name="Pedidos" parent="menu_materiales_configuracion" action="pedidos_action" sequence="10"/>
+                <!-- This Menu Item must have a parent and an action -->
+                <menuitem id="submenu_proveedores" name="Proveedores" parent="menu_materiales_configuracion" action="proveedor_action" sequence="20"/>
+
+        
+    </data>
+</odoo>

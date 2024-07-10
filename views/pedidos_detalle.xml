@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- pedidos_detalles tree view -->
+    <record id="pedidos_detalles_view_tree" model="ir.ui.view">
+        <field name="name">pedidos_detalles.view.tree</field>
+        <field name="model">pedidos.detalles</field>
+        <field name="arch" type="xml">
+            <tree>
+               <field name="pedidos_ids"/>
+                <field name="material_id"/>
+                <field name="cantidad"/>
+                <field name="precio"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pedidos_detalles form view -->
+    <record id="pedidos_detalles_view_form" model="ir.ui.view">
+        <field name="name">pedidos_detalles.view.form</field>
+        <field name="model">pedidos.detalles</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="pedidos_ids"/>
+                <field name="material_id"/>
+                <field name="cantidad"/>
+                <field name="precio"/>
+            
+            </form>
+        </field>
+    </record>
+
+    <!-- pedidos search view -->
+    <record id="pedidos_detalles_view_search" model="ir.ui.view">
+        <field name="name">pedidos.view.search</field>
+        <field name="model">pedidos.detalles</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <field name="pedidos_ids"/>
+                <field name="material_id"/>
+                <field name="cantidad"/>
+                <field name="precio"/>     
+            </search>
+        </field>
+    </record>
+
+    <record id="pedidos_detalles_action" model="ir.actions.act_window">
+        <field name="name">pedidos Disponibles</field>
+        <field name="res_model">pedidos.detalles</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+  
+
+</odoo>
